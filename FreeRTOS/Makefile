@@ -23,14 +23,14 @@ AR			:= $(PREFIX)ar
 GDB			:= $(PREFIX)gdb
 DEBUG		:= -ggdb3
 FP_FLAGS	?= -mfloat-abi=hard -mfpu=fpv4-sp-d16
-ARCH_FLAGS	= -mthumb -mcpu=cortex-m4 $(FP_FLAGS)
-ARFLAGS 	= rcs
+ARCH_FLAGS	:= -mthumb -mcpu=cortex-m4 $(FP_FLAGS)
+ARFLAGS		:= rcs
 
-CFLAGS 		= -Os -std=c99 \
-		  		-Wall -Wextra -Wimplicit-function-declaration \
-		  		-Wredundant-decls -Wmissing-prototypes -Wstrict-prototypes \
-		  		-Wundef -Wshadow -fno-common -Wstrict-prototypes \
-		  		-ffunction-sections -fdata-sections -MD
+CFLAGS		= -Os -std=c99 \
+			  -Wall -Wextra -Wimplicit-function-declaration \
+			  -Wredundant-decls -Wmissing-prototypes -Wstrict-prototypes \
+			  -Wundef -Wshadow -fno-common -Wstrict-prototypes \
+			  -ffunction-sections -fdata-sections -MD
 
 .PHONY: clean
 
@@ -42,6 +42,6 @@ $(LIB_NAME): $(OBJECTS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(ARCH_FLAGS) -o $@ -c $<
-	
+
 clean:
 	rm -f lib/*.a $(SRCS:.c=.d) $(OBJECTS) ./source/include/portmacro.h
