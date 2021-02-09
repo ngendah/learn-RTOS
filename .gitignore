@@ -15,3 +15,7 @@
 *.map
 *.d
 *.swp
+Debug/
+Release/
+local.properties
+.loadpath
