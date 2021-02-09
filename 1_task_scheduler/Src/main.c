@@ -92,7 +92,6 @@ int main(void) {
 	init_scheduler_stack();
 	init_task_stack();
 	init_psp();
-	led_init_all();
 	enable_systick();
 	task1();
 	/* Loop forever */
